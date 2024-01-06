@@ -10,7 +10,7 @@ on: [push, pull_request]
 jobs:
 
   test_pyenv:
-    runs-on: macOS 13 Arm64
+    runs-on: macos-13-arm64
     name: install pyenv
     steps:
     - name: setup pyenv
