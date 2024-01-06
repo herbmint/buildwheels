@@ -1,6 +1,12 @@
 name: Using python 3.13-dev with pyenv
 on: [push, pull_request]
-
+env:
+  VERSION: 1.24.0
+  CIBW_ARCHS_LINUX: auto
+  CIBW_ARCHS_MACOS: x86_64 arm64
+  CIBW_ARCHS_WINDOWS: AMD64
+  CIBW_TEST_SKIP: "*"
+  
 jobs:
 
   test_pyenv:
