@@ -1,0 +1,21 @@
+name: Using python 3.9 with pyenv
+on: [push, pull_request]
+
+jobs:
+
+  test_pyenv:
+    runs-on: macos-latest
+    name: install pyenv
+    steps:
+    - name: setup pyenv
+      uses: "gabrielfalcao/pyenv-action@v18"
+      with:
+        default: 3.10.12
+
+    # create virtualenv for each python version
+
+    - name: Create virtualenv for python 3.13-dev
+      run: PYTHON_CONFIGURE_OPTS='--disable-gil' pyenv install 3.13-dev && pyenv global 3.13-dev
+
+    - name: check
+      run: python -c 'import sysconfig; print(sysconfig.get_config_var("Py_GIL_DISABLED"))'
