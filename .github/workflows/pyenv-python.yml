@@ -15,8 +15,8 @@ jobs:
     strategy:
       matrix:
         arch:
-          - arm64
-          # - x64
+          # - arm64
+          - x64
     env:
       BUILD_ARCH: ${{ matrix.arch }}
     name: install pyenv
